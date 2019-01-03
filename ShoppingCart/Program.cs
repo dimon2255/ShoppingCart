@@ -19,6 +19,13 @@ namespace ShoppingCart
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+            .ConfigureLogging(options =>
+            {
+                options.ClearProviders();
+
+                options.AddConsole();
+                options.AddDebug();
+            })
                 .UseStartup<Startup>();
     }
 }
